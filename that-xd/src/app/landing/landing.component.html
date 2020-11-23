@@ -1,0 +1,68 @@
+<div class="landing-wrapper" (scroll)="onWindowScroll($event)">
+  <span id="hire" (click)="flipFace('1')">Hire Me -></span>
+  <div class="landing-Scrollbar">
+    <span id="card-Indicator"></span>
+    <span id="skills-Indicator"></span>
+    <span id="projects-Indicator"></span>
+    <span id="contact-Indicator"></span>
+  </div>
+  <div class="landing-Card">
+    <h1>Hi, I am Alex.<br/>Nice to meet you.</h1>
+    <h2>Computer Science New Graduate<br/>Software & Front-end Developer</h2>
+  </div>
+  <div class="landing-Skills">
+    <h1>SKILLS</h1>
+    <div id="square-container">
+      <div id="square-wrapper">
+        <div id="square">
+          <h2>Languages</h2>
+          <p>
+            - React, Angular, Vue<br/>
+            - JavaScript, TypeScript<br/>
+            - HTML, CSS, SASS<br/>
+            - Java, Python<br/>
+            - Firebase, NodeJS, SQL, GraphQL<br/>
+          </p>
+        </div>
+        <div id="square">
+          <h2>Tools</h2>
+          <p>
+            - Netbeans, VSCode, BlueJ<br/>
+            - Postman, PuTTY<br/>
+            - NPM, Git, Bash<br/>
+            - Apache, Webpack<br/>
+          </p>
+        </div>
+        <div id="square">
+          <h2>Personal</h2>
+          <p>
+            - Innovative Problem Solving<br/>
+            - Clear Communication<br/>
+            - Team Work<br/>
+            - Fast Adapting<br/>
+            - Interest Oriented<br/>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="landing-Projects">
+    <h1>Projects</h1>
+    <div id="screenshot-container">
+      <div class="screenshot" [ngStyle]="{ backgroundImage: 'url(/assets/covid_landing.png)' }" (click)="flipFace('2')"></div>
+      <div class="screenshot" [ngStyle]="{ backgroundImage: 'url(/assets/hlxz_landing.png)' }" (click)="flipFace('2')"></div>
+      <div class="screenshot" [ngStyle]="{ backgroundImage: 'url(/assets/mvrec_landing.png)' }" (click)="flipFace('2')"></div>
+      <div class="screenshot" [ngStyle]="{ backgroundImage: 'url(/assets/mvrec_code.png)' }" (click)="flipFace('2')"></div>
+    </div>
+    <div id="p-container"><p>After 7 years of school life in Toronto, I am fanscinated by various of information technologies and graduate from Ryerson University with Bachelor of (Computer) Science.<br/>With fundamental skills, I am curious and passionate in learning various skills and frameworks, to build dynamic and high performance websites and apps.</p></div>
+  </div>
+  <div class="landing-Contact">
+    <h1>CALL ME</h1>
+    <h2>Continue Learning and Perfecting</h2>
+    <h4>
+      <span (click)="flipFace('1')">Resume</span>
+      <span>Hire Me</span>
+      <span>Contact</span>
+    </h4>
+  </div>
+</div>

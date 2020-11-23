@@ -1,0 +1,320 @@
+@import "../../styles.scss";
+.landing-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    background-color: #333333;
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+    & > div {
+        scroll-snap-align: start;
+        height: 100%;
+        width: 100%;
+    }
+    #hire{
+        position:fixed;
+        top:20px;
+        right:20px;
+        cursor:pointer;
+        color:lightblue;
+    }
+    .landing-Scrollbar {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 45px;
+        width: 50px;
+        @include responsive-when(mobile) {
+            left: 10px;
+        }
+        @include responsive-when(tablet) {
+            left: 25px;
+        }
+        @include responsive-when(pc) {
+            left: 50px;
+        }
+        span {
+            display: block;
+            width: 50%;
+            height: 5px;
+            background-color: lightgrey;
+            margin: 5px 0;
+            transition: all 1s;
+            &.inview {
+                width: 100%;
+                background-color: white;
+            }
+        }
+    }
+    .landing-Card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        &.inview h1 {
+            animation-duration: 1s;
+            animation-name: slide-down;
+            animation-timing-function: ease-in;
+            animation-fill-mode: inherit;
+        }
+        &.inview h2 {
+            animation-duration: 2s;
+            animation-name: slide-up;
+            animation-timing-function: ease-in;
+            animation-fill-mode: inherit;
+        }
+        h1 {
+            width: 100vw;
+            text-align: center;
+            @include responsive-when(mobile) {
+                font-size: 3rem;
+            }
+            @include responsive-when(tablet) {
+                font-size: 4rem;
+            }
+            @include responsive-when(pc){
+                font-size: 5rem;
+            }
+        }
+        h2 {
+            @include responsive-when(mobile) {
+                font-size: 1rem;
+                line-height: 1rem;
+                margin-top: 1rem;
+                padding: 0 25px;
+            }
+            @include responsive-when(tablet) {
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+                margin-top: 2rem;
+                padding: 0 25px;
+            }
+            @include responsive-when(pc){
+                font-size:2rem;
+                line-height:1.5rem;
+                margin-top:2.5rem;
+                padding:0 50px;
+            }
+            &::before,
+            &::after {
+                content: "-";
+                text-align: center;
+                display: inline-block;
+                width: 20px;
+                height: 100%;
+            }
+        }
+    }
+    .landing-Skills {
+        overflow:hidden;
+        h1{
+            position:absolute;
+            top:50%;
+            left:50px;
+            transform:translateY(-50%);
+            z-index:0;
+            font-size:10rem;
+            color:rgba(255,255,255,0.1);
+        }
+        position: relative;
+        &.inview #square:nth-child(1) {
+            animation-name: slide-up;
+            animation-timing-function: ease-in;
+            animation-fill-mode: inherit;
+            @include nth-delay(1);
+        }
+        &.inview #square:nth-child(2) {
+            animation-name: slide-up;
+            animation-timing-function: ease-in;
+            @include nth-delay(2);
+        }
+        &.inview #square:nth-child(3) {
+            animation-name: slide-up;
+            animation-timing-function: ease-in;
+            @include nth-delay(3);
+        }
+        #square-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include responsive-when(mobile) {
+                width: calc(100vw - 15px);
+                left: calc(50% + 15px);
+                height: 350px;
+                overflow-x: scroll;
+                overflow-y: hidden;
+            }
+            @include responsive-when(tablet) {
+                width: 100vw;
+                height: 40vw;
+                overflow-x: scroll;
+                overflow-y: hidden;
+            }
+            @include responsive-when(pc) {
+                width: 912px;
+                height: 304px;
+            }
+            #square-wrapper {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                height: 100%;
+                width: 100%;
+                @include responsive-when(tablet) {
+                    grid-template-columns: 33% auto 33%;
+                }
+                #square {
+                    border: 2px solid white;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    opacity: 1;
+                    h2 {
+                        text-align: left;
+                        width: 100%;
+                        &::before {
+                            content: ">";
+                            margin: 0 15px;
+                        }
+                    }
+                    @include responsive-when(mobile) {
+                        width: calc(100vw - 19px);
+                        height: calc(100% - 4px);
+                    }
+                    @include responsive-when(pc) {
+                        width: 300px;
+                        height: 300px;
+                    }
+                }
+            }
+        }
+    }
+    .landing-Projects {
+        position: relative;
+        overflow:hidden;
+        h1{
+            position:absolute;
+            top:50%;
+            left:50px;
+            transform:translateY(-50%);
+            z-index:0;
+            font-size:10rem;
+            color:rgba(255,255,255,0.1);
+        }
+        &.inview .screenshot:nth-child(2n) {
+            animation-duration: 1s;
+            animation-name: slide-up;
+            animation-timing-function: ease-in;
+        }
+        &.inview .screenshot:nth-child(2n + 1) {
+            animation-duration: 1s;
+            animation-name: slide-down;
+            animation-timing-function: ease-in;
+        }
+        #screenshot-container {
+            height: calc(60% - 30px);
+            @include responsive-when(mobile) {
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                grid-gap: 1px solid white;
+                padding: 0;
+            }
+            @include responsive-when(tablet) {
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                grid-gap: 25px;
+                padding: 15px;
+            }
+            @include responsive-when(pc) {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+            .screenshot {
+                background-size: cover;
+                background-position: top left;
+                opacity: 0.5;
+                height: calc(100% - 50px);
+                width: 100%;
+                transition: all 1s;
+                &:hover {
+                    cursor: pointer;
+                    opacity: 1;
+                }
+                @include responsive-when(tablet) {
+                    &:nth-child(1) {
+                        transform: translateY(25px);
+                    }
+                    &:nth-child(3) {
+                        transform: translateY(50px);
+                    }
+                    &:nth-child(4) {
+                        transform: translateY(35px);
+                    }
+                }
+                @include responsive-when(pc) {
+                    width: 150px;
+                    margin: 0 37px;
+                    &:nth-child(1) {
+                        transform: translateY(25px);
+                    }
+                    &:nth-child(3) {
+                        transform: translateY(50px);
+                    }
+                    &:nth-child(4) {
+                        transform: translateY(35px);
+                    }
+                }
+            }
+        }
+        #p-container {
+            height:40%;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            p {
+                @include responsive-when(mobile) {
+                    font-size:1rem;
+                    padding: 0 15px;
+                    width: calc(100% - 30px);
+                }
+                @include responsive-when(tablet) {
+                    font-size:1.1rem;
+                    padding: 0 25px;
+                    width: calc(100% - 50px);
+                }
+                @include responsive-when(pc) {
+                    font-size: 1.5rem;
+                    width: 800px;
+                    padding: 50px calc(50% - 400px);
+                }
+                text-align: center;
+                color: white;
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+    }
+    .landing-Contact {
+        position:relative;
+        overflow:hidden;
+        h1{
+            position:absolute;
+            top:50%;
+            left:50px;
+            transform:translateY(-50%);
+            z-index:0;
+            font-size:10rem;
+            line-height:9rem;
+            color:rgba(255,255,255,0.1);
+        }
+    }
+}

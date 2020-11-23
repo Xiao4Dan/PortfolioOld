@@ -1,0 +1,98 @@
+/*
+Global Styles, scrollbar and etc.
+*/
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+/*
+Functions and Mixins.
+*/
+$small: 450px;
+$large: 1080px;
+
+@mixin responsive-when($media) {
+    @if $media == mobile {
+        @media only screen and (max-width: $small) {
+            @content;
+        }
+    } @else if $media == tablet {
+        @media only screen and (min-width: $small + 1) and (max-width: $large - 1) {
+            @content;
+        }
+    } @else if $media == pc {
+        @media only screen and (min-width: $large) {
+            @content;
+        }
+    }
+}
+
+@mixin nth-delay($n) {
+    &:nth-child(#{n}) {
+        animation-duration: $n * 0.5s;
+    }
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(60%);
+    }
+    50% {
+        opacity: 0.1;
+        transform: translateY(40%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-60%);
+    }
+    50% {
+        opacity: 0.1;
+        transform: translateY(-40%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        opacity: 0;
+        transform: translateX(60%);
+    }
+    50% {
+        opacity: 0.1;
+        transform: translateX(40%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: lightblue lightgrey;
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: ligthgrey;
+    border: 1px solid lightblue;
+}

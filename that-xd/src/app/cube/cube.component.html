@@ -1,0 +1,17 @@
+<div class="cube-wrapper">
+    <button id="cube-toggle" (click)="toggleFace($event)">CLICK</button>
+    <div class="cube-container" id="cube">
+        <div class="cube__face front-face">
+            <app-landing class="landing" (newToggleEvent)="setFace($event)"></app-landing>
+        </div>
+        <div class="cube__face right-face">
+            <app-project class="project" (newToggleEvent)="setFace($event)"></app-project>
+        </div>
+        <div class="cube__face top-face">
+            <app-contact class="contact" (newToggleEvent)="setFace($event)"></app-contact>
+        </div>
+        <div class="cube__face left-face"></div>
+        <div class="cube__face bottom-face"></div>
+        <div class="cube__face back-face"></div>
+    </div>
+</div>

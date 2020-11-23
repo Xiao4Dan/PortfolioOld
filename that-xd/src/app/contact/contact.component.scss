@@ -1,0 +1,99 @@
+@import "../../styles.scss";
+.contact-wrapper{
+    height:calc(100vh - 100px);
+    width:100vw;
+    background-color:#D87C94;
+    display:grid;
+    align-items: center;
+    justify-items: center;
+    padding-bottom:100px;
+    @include responsive-when(pc){
+        grid-template-columns: 50% 50%;
+        h1{
+            font-size:5rem;
+            color:white;
+        }
+        h4{
+            font-size:2rem;
+            color:lightgrey;
+        }
+    }
+    @include responsive-when(tablet){
+        grid-template-rows: auto auto;
+        grid-template-columns: 40% 60%;
+        h1{
+            font-size:3.5rem;
+            color:white;
+        }
+        h4{
+            font-size:1.5rem;
+            color:lightgrey;
+        }
+    }
+    @include responsive-when(mobile){
+        .contact-prompt{
+            width:calc(100% - 30px);
+            padding:15px 0;
+        }
+        h1{
+            width:100%;
+            text-align:left;
+            font-size:2.5rem;
+            color:white;
+        }
+        h4{
+            width:100%;
+            text-align:left;
+            font-size:1rem;
+            color:lightgrey;
+        }
+    }
+    .contact-form{
+        width:90%;
+        @include responsive-when(pc){
+            label{
+                font-size:1.5rem;
+                margin:15px 0;
+            }
+            input{
+                font-size:1.5rem;
+                margin:15px 0;
+            }
+        }
+        @include responsive-when(tablet){
+        }
+        label{
+            color:white;
+        }
+        input{
+            outline:none;
+            background-color:rgba(0,0,0,0);
+            border:none;
+            border-bottom:2px solid white;
+            transition:all 1s;
+            color:white;
+            width:90%;
+            &:focus{
+                background-color:rgba(255,255,255,0.1);
+                border-bottom:5px solid white;
+                width:100%;
+            }
+            &[type="submit"]{
+                background-color:white;
+                color:#D87C94;
+                padding:10px 25px;
+                cursor:pointer;
+                &:hover{
+                    transform:scale(1.2);
+                }
+            }
+        }
+        .contact-links{
+            position:fixed;
+            bottom:0;
+            left:0;
+            width:100vw;
+            height:100px;
+        }
+    }
+}
