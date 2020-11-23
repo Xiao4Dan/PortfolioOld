@@ -9,6 +9,8 @@ import { ProjectComponent } from './project/project.component';
 import { LostLandComponent } from './lost-land/lost-land.component';
 import { ContactComponent } from './contact/contact.component';
 
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,

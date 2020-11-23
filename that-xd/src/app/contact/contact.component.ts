@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  @Output() newToggleEvent = new EventEmitter<number>();
+  private api = 'https://mailthis.to/Xiao4Dan'
+
   constructor() { }
 
   ngOnInit(): void {
@@ -14,5 +17,10 @@ export class ContactComponent implements OnInit {
 
   onSubmit(): void{
     console.log('submitted!');
+  }
+
+  flipFace(face: String){
+    console.log('flipping: ', face);
+    this.newToggleEvent.emit(Number(face));
   }
 }

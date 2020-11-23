@@ -316,5 +316,61 @@
             line-height:9rem;
             color:rgba(255,255,255,0.1);
         }
+        @include responsive-when(mobile){
+            display:flex;
+            align-items: flex-end;
+            justify-content: space-evenly;
+            flex-direction:column;
+            span{
+                font-size:2rem;
+                width:calc(60% - 50px);
+                &:hover{
+                    width:calc(80% - 50px);
+                }
+            }
+        }
+        @include responsive-when(tablet){
+            display:flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction:column;
+            span{
+                font-size:3rem;
+                width:60%;
+                &:hover{
+                    transform:scale(1.1);
+                }
+            }
+        }
+        @include responsive-when(pc){
+            display:flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction:row;
+            span{
+                font-size:4rem;
+                height:120px;
+                width:300px;
+                &:hover{
+                    transform:scale(1.2);
+                }
+            }
+        }
+        span{
+            color:white;
+            cursor:pointer;
+            border:2px solid white;
+            transition:all 1s;
+            padding:25px;
+            text-align:center;
+            z-index:1;
+            &:hover{
+                border-color:lightblue;
+            }
+            a{
+                text-decoration: none;
+                color:white;
+            }
+        }
     }
 }
