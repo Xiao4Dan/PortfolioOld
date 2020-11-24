@@ -20,6 +20,7 @@
         right:20px;
         cursor:pointer;
         color:lightblue;
+        z-index:10;
     }
     .landing-Scrollbar {
         position: fixed;
@@ -27,6 +28,7 @@
         transform: translateY(-50%);
         height: 45px;
         width: 50px;
+        z-index:10;
         @include responsive-when(mobile) {
             left: 10px;
         }

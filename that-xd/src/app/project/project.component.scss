@@ -1,3 +1,4 @@
+@import "../../styles.scss";
 //Parallax mixin
 //Reference: https://codepen.io/scottkellum/details/bHEcA
 //
@@ -94,6 +95,7 @@ $parallax-ios: true !default;
         background-position:center;
         background-size:cover;
         box-shadow: 0 8px 16px 0 #203647;
+        z-index:1;
     }
     .project-description{
         width:62%;
@@ -101,7 +103,53 @@ $parallax-ios: true !default;
         background-color:#007CC7;
         min-width:400px;
         min-height:400px;
-        z-index:1;
+        z-index:10;
+        color:white;
+        display:flex;
+        align-items: flex-end;
+        justify-content: center;
+        flex-direction:column;
+        @include responsive-when(pc){
+            h1{
+                font-size:1rem;
+                margin:1rem 0;
+                width:75%;
+            }
+            p{
+                width:75%;
+                font-size:1.5rem;
+                line-height: 2rem;
+            }
+        }
+        a{
+            display:inline-block;
+            text-decoration: none;
+            padding:15px 20px;
+            margin:10px;
+            color:#12232E;
+            background-color:#4DA8DA;
+            &:hover{
+                background-color:lightblue;
+            }
+        }
+        @include responsive-when(tablet){
+            padding:15px;
+            h1{
+                width:80%;
+                font-size:2rem;
+            }
+            p{
+                width:80%;
+                font-size:1rem;
+            }
+        }
+        @include responsive-when(mobile){
+            padding:10px;
+            h1,p{
+                width:80%;
+                font-size:1rem;
+            }
+        }
     }
     div:nth-child(3){
         transform-origin: left top;
@@ -186,6 +234,9 @@ $parallax-ios: true !default;
                     margin:10px;
                     color:#12232E;
                     background-color:#4DA8DA;
+                    &:hover{
+                        background-color:lightblue;
+                    }
                 }
             }
         }
