@@ -4,6 +4,7 @@
     height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     scroll-snap-type: y mandatory;
     background-color: #333333;
     &::-webkit-scrollbar {
@@ -14,13 +15,32 @@
         height: 100%;
         width: 100%;
     }
-    #hire{
-        position:fixed;
-        top:20px;
-        right:20px;
-        cursor:pointer;
-        color:lightblue;
-        z-index:10;
+    #hire {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        color: lightblue;
+        z-index: 10;
+    }
+    #discover {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: lightblue;
+        z-index: 10;
+    }
+    #bmc {
+        position: fixed;
+        bottom: 25px;
+        right: 20px;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        z-index: 10;
     }
     .landing-Scrollbar {
         position: fixed;
@@ -28,7 +48,7 @@
         transform: translateY(-50%);
         height: 45px;
         width: 50px;
-        z-index:10;
+        z-index: 10;
         @include responsive-when(mobile) {
             left: 10px;
         }
@@ -57,7 +77,8 @@
         justify-content: center;
         flex-direction: column;
         color: white;
-        &.inview h1 {
+        &.inview h1,
+        img {
             animation-duration: 1s;
             animation-name: slide-down;
             animation-timing-function: ease-in;
@@ -72,17 +93,35 @@
         h1 {
             width: 100vw;
             text-align: center;
+            b {
+                color: skyblue;
+            }
             @include responsive-when(mobile) {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             @include responsive-when(tablet) {
-                font-size: 4rem;
+                font-size: 3.5rem;
             }
-            @include responsive-when(pc){
-                font-size: 5rem;
+            @include responsive-when(pc) {
+                line-height: 5rem;
+                font-size: 4.5rem;
             }
         }
         h2 {
+            text-align: center;
+            position: relative;
+            text-shadow: 5px 5px 5px #33333333;
+            z-index: 1;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50px;
+                height: 100%;
+                width: 100%;
+                background-color: skyblue;
+                z-index: -1;
+            }
             @include responsive-when(mobile) {
                 font-size: 1rem;
                 line-height: 1rem;
@@ -95,32 +134,29 @@
                 margin-top: 2rem;
                 padding: 0 25px;
             }
-            @include responsive-when(pc){
-                font-size:2rem;
-                line-height:1.5rem;
-                margin-top:2.5rem;
-                padding:0 50px;
+            @include responsive-when(pc) {
+                font-size: 2rem;
+                line-height: 2rem;
+                margin-top: 2rem;
+                padding: 0 50px;
             }
-            &::before,
-            &::after {
-                content: "-";
-                text-align: center;
-                display: inline-block;
-                width: 20px;
-                height: 100%;
-            }
+        }
+        img {
+            max-width: 450px;
+            max-height: 400px;
+            cursor: pointer;
         }
     }
     .landing-Skills {
-        overflow:hidden;
-        h1{
-            position:absolute;
-            top:50%;
-            left:50px;
-            transform:translateY(-50%);
-            z-index:0;
-            font-size:10rem;
-            color:rgba(255,255,255,0.1);
+        overflow: hidden;
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            transform: translateY(-50%);
+            z-index: 0;
+            font-size: 10rem;
+            color: rgba(255, 255, 255, 0.1);
         }
         position: relative;
         &.inview #square:nth-child(1) {
@@ -176,13 +212,26 @@
                     align-items: center;
                     justify-content: center;
                     flex-direction: column;
+                    text-align: center;
                     opacity: 1;
+                    img {
+                        height: 50px;
+                        width: 50px;
+                    }
                     h2 {
-                        text-align: left;
                         width: 100%;
-                        &::before {
-                            content: ">";
-                            margin: 0 15px;
+                        position: relative;
+                        text-shadow: 5px 5px 5px #33333333;
+                        z-index: 1;
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            left: 10px;
+                            width: calc(100% - 20px);
+                            height: 50%;
+                            background-color: skyblue;
+                            z-index: -1;
                         }
                     }
                     @include responsive-when(mobile) {
@@ -199,15 +248,15 @@
     }
     .landing-Projects {
         position: relative;
-        overflow:hidden;
-        h1{
-            position:absolute;
-            top:50%;
-            left:50px;
-            transform:translateY(-50%);
-            z-index:0;
-            font-size:10rem;
-            color:rgba(255,255,255,0.1);
+        overflow: hidden;
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            transform: translateY(-50%);
+            z-index: 0;
+            font-size: 10rem;
+            color: rgba(255, 255, 255, 0.1);
         }
         &.inview .screenshot:nth-child(2n) {
             animation-duration: 1s;
@@ -278,18 +327,21 @@
             }
         }
         #p-container {
-            height:40%;
-            display:flex;
+            height: 40%;
+            display: flex;
             align-items: center;
             justify-content: center;
             p {
+                b {
+                    color: skyblue;
+                }
                 @include responsive-when(mobile) {
-                    font-size:1rem;
+                    font-size: 1rem;
                     padding: 0 15px;
                     width: calc(100% - 30px);
                 }
                 @include responsive-when(tablet) {
-                    font-size:1.1rem;
+                    font-size: 1.1rem;
                     padding: 0 25px;
                     width: calc(100% - 50px);
                 }
@@ -306,73 +358,120 @@
         }
     }
     .landing-Contact {
-        position:relative;
-        overflow:hidden;
-        h1{
-            position:absolute;
-            top:50%;
-            left:50px;
-            transform:translateY(-50%);
-            z-index:0;
-            font-size:10rem;
-            line-height:9rem;
-            color:rgba(255,255,255,0.1);
+        position: relative;
+        overflow: hidden;
+        &.inview #flip1 {
+            animation: pulse 5s;
+            &::after {
+                content: "";
+                animation: flip 5s linear;
+            }
         }
-        @include responsive-when(mobile){
-            display:flex;
-            align-items: flex-end;
-            justify-content: space-evenly;
-            flex-direction:column;
-            span{
-                font-size:2rem;
-                width:calc(60% - 50px);
-                &:hover{
-                    width:calc(80% - 50px);
+        &.inview #flip2 {
+            animation: appear 10s linear;
+        }
+
+        #flipping-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            #flip1 {
+                font-size: 10rem;
+                line-height: 9rem;
+                text-align: center;
+                color: white;
+            }
+            #flip2 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 60vh;
+                height: 60vh;
+                border-radius: 50%;
+                background-color: rgba(135, 206, 250, 0.6);
+                transition:0.5s ease-in-out;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                h2 {
+                    color: white;
+                    font-size: 3.5rem;
+                    text-align: center;
+                }
+                p {
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        cursor:pointer;
+                        margin: 10px;
+                        padding: 10px 15px;
+                        &:hover {
+                            font-weight: bold;
+                            transform: scale(1.4);
+                        }
+                    }
+                }
+                &:hover {
+                    background-color: rgba(135, 206, 250, 1);
                 }
             }
+            z-index: 0;
         }
-        @include responsive-when(tablet){
-            display:flex;
-            align-items: center;
-            justify-content: space-evenly;
-            flex-direction:column;
-            span{
-                font-size:3rem;
-                width:60%;
-                &:hover{
-                    transform:scale(1.1);
-                }
-            }
+        span {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: skyblue;
         }
-        @include responsive-when(pc){
-            display:flex;
-            align-items: center;
-            justify-content: space-evenly;
-            flex-direction:row;
-            span{
-                font-size:4rem;
-                height:120px;
-                width:300px;
-                &:hover{
-                    transform:scale(1.2);
-                }
-            }
-        }
-        span{
-            color:white;
-            cursor:pointer;
-            border:2px solid white;
-            transition:all 1s;
-            padding:25px;
-            text-align:center;
-            z-index:1;
-            &:hover{
-                border-color:lightblue;
-            }
-            a{
-                text-decoration: none;
-                color:white;
-            }
-        }
+    }
+}
+
+@keyframes flip {
+    0% {
+        content: "INTERESTED ? ";
+    }
+    100% {
+        content: "CALL ME";
+    }
+}
+
+@keyframes pulse {
+    0% {
+        color: transparent;
+    }
+    10% {
+        color: transparent;
+    }
+    30% {
+        color: white;
+    }
+    50% {
+        color: transparent;
+    }
+    60% {
+        color: transparent;
+    }
+    80% {
+        color: white;
+    }
+    100% {
+        color: transparent;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

@@ -52,4 +52,18 @@ export class LandingComponent implements OnInit {
     this.newToggleEvent.emit(Number(face));
   }
 
+  avatar(event: any, action: String){
+    if(action === 'over'){
+      event.target.setAttribute('src', '/assets/wink-bigheads.svg');
+    }else if(action === 'out'){
+      event.target.setAttribute('src', '/assets/masked-bigheads.svg');
+    }else if(action === 'link'){
+      window.open("https://bigheads.io/", "__blank");
+    }
+  }
+
+  bmc(){
+    window.open('https://www.buymeacoffee.com/thatxd', "_blank");
+  }
+
 }

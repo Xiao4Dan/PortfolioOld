@@ -1,15 +1,31 @@
 @import "../../styles.scss";
 .contact-wrapper{
-    height:calc(100vh - 100px);
+    height:100vh;
     width:100vw;
     background-color:#D87C94;
     display:grid;
     align-items: center;
     justify-items: center;
-    padding-bottom:100px;
     svg{
         margin:25px 0;
         cursor:pointer;
+    }
+    #home{
+        position:fixed;
+        bottom:20px;
+        left:50%;
+        transform:translateX(-50%);
+        cursor:pointer;
+        color:white;
+        z-index:10;
+    }
+    #projects{
+        position:fixed;
+        bottom:20px;
+        right:20px;
+        cursor:pointer;
+        color:white;
+        z-index:10;
     }
     @include responsive-when(pc){
         grid-template-columns: 50% 50%;
@@ -23,7 +39,6 @@
         }
     }
     @include responsive-when(tablet){
-        grid-template-rows: auto auto;
         grid-template-columns: 40% 60%;
         .contact-prompt{
             width:calc(100% - 40px);
@@ -39,6 +54,9 @@
         }
     }
     @include responsive-when(mobile){
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
         .contact-prompt{
             width:calc(100% - 30px);
             padding:15px 0;
